@@ -66,7 +66,7 @@ app.layout = html.Div(
         html.Div(
             children=[
                 dcc.Graph(
-                    # id="running-chart",
+                    id="running-chart",
                     config={"displayModeBar": False},
                     figure={
                         'data': [
@@ -74,7 +74,11 @@ app.layout = html.Div(
                                 'x': tmp['date'],
                                 'y': tmp['distance_sum'],
                                 'text': tmp['distance'],
-                                'type': 'spline',
+                                'type': 'scatter',
+                                'line': {
+                                    'shape': 'spline',
+                                    'smoothing': .9
+                                },
                                 "hovertemplate": "Daily: %{text:d}<br>"
                                                  "Total: %{y:d}"
                                                 "<extra></extra>"
@@ -97,7 +101,8 @@ app.layout = html.Div(
                     },
                     className="card",
                 ),
-            ]
+            ],
+            className="wrapper",
         ),
     ],
 )
