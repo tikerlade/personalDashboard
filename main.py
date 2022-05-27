@@ -79,8 +79,8 @@ app.layout = html.Div(
                                     'shape': 'spline',
                                     'smoothing': .9
                                 },
-                                "hovertemplate": "Daily: %{text:d}<br>"
-                                                 "Total: %{y:d}"
+                                "hovertemplate": "Daily: %{text:.1f}<br>"
+                                                 "Total: %{y:.1f}"
                                                 "<extra></extra>"
                             }
                         ],
