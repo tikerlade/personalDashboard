@@ -20,7 +20,7 @@ external_stylesheets = [
 # Dash app initialization
 # Themes: DARKLY, LITERA, MORPH, QUARTZ, SKETCHY, SUPERHERO, ZEPHYR
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-app.title = 'Vanya Analytics'
+app.title = 'Progress of Kuzya'
 server = app.server
 
 # Data loading and using
@@ -51,7 +51,7 @@ app.layout = html.Div(
                 html.P(children="🐱", className="header-emoji"),
 
                 html.H1(
-                    children="Vanya Analytics", className="header-title"
+                    children="Progress of Kuzya", className="header-title"
                 ),
 
                 html.P(
