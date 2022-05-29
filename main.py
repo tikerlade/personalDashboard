@@ -65,40 +65,69 @@ app.layout = html.Div(
 
         html.Div(
             children=[
-                dcc.Graph(
-                    id="running-chart",
-                    config={"displayModeBar": False},
-                    figure={
-                        'data': [
-                            {
-                                'x': tmp['date'],
-                                'y': tmp['distance_sum'],
-                                'text': tmp['distance'],
-                                'type': 'scatter',
-                                'line': {
-                                    'shape': 'spline',
-                                    'smoothing': .9
-                                },
-                                "hovertemplate": "Daily: %{text:.1f}<br>"
-                                                 "Total: %{y:.1f}"
-                                                "<extra></extra>"
-                            }
-                        ],
-                        'layout': {
-                            "title": {
-                                "text": "Distance I ran so far ...",
+                html.Div(
+                    children=[
+                        html.H1(
+                            children="Days until Thesis presentation", className="card-title"
+                        ),
+                        dbc.Progress(
+                            value=0.1,
+                            min=0,
+                            max=1,
+                            striped=True,
+                            animated=True,
+                            id="progress_bar",
+                        ),
+                    ],
+                    className="card"
+                )
+            ],
+            className="wrapper",
+        ),
+
+        html.Div(
+            children=[
+                html.Div(
+                    children=[
+                        html.H1(
+                            children="Distance I ran so far ...", className="card-title"
+                        ),
+                        dcc.Graph(
+                            id="running-chart",
+                            config={"displayModeBar": False},
+                            figure={
+                                'data': [
+                                    {
+                                        'x': tmp['date'],
+                                        'y': tmp['distance_sum'],
+                                        'text': tmp['distance'],
+                                        'type': 'scatter',
+                                        'line': {
+                                            'shape': 'spline',
+                                            'smoothing': .9
+                                        },
+                                        "hovertemplate": "Daily: %{text:.1f}<br>"
+                                                         "Total: %{y:.1f}"
+                                                        "<extra></extra>"
+                                    }
+                                ],
+                                'layout': {
+                                    # "title": {
+                                    #     "text": "Distance I ran so far ...",
+                                    # },
+                                    "xaxis": {
+                                        "title": "Date",
+                                        "fixedrange": True
+                                    },
+                                    "yaxis": {
+                                        "title": "Cumulative Distance",
+                                        "fixedrange": True
+                                    },
+                                    "colorway": ["#E876D2"],
+                                }
                             },
-                            "xaxis": {
-                                "title": "Date",
-                                "fixedrange": True
-                            },
-                            "yaxis": {
-                                "title": "Cumulative Distance",
-                                "fixedrange": True
-                            },
-                            "colorway": ["#E876D2"],
-                        }
-                    },
+                        ),
+                    ],
                     className="card",
                 ),
             ],
